@@ -19,7 +19,6 @@ jobs:
           repository: mtararujs/python-greetings
           path: python-greetings
       - name: Informācija
-        - name: Informācija
         run: echo "Instalēju atkarības..."
       - name: Install dependencies
         run: pip install -r requirements.txt
