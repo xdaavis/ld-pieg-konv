@@ -56,7 +56,7 @@ on:
             with:
               environment: staging
               port: 7002
-              repository:xdaavis/ld-pieg-konv
+              repository: xdaavis/ld-pieg-konv
               path: python-greetings
 
       tests-on-staging:
