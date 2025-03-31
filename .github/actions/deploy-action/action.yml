@@ -1,0 +1,30 @@
+name: "Deploy to Environment"
+    description: "Deploys the application to a specified environment"
+    inputs:
+      environment:
+        description: "The target environment (dev, staging, preprod, prod)"
+        required: true
+      port:
+        description: "The port number for the environment"
+        required: true
+      repository:
+        description: "The repository to checkout"
+        required: true
+      path:
+        description: "The path to the repository"
+        required: true
+    runs:
+      using: "composite"
+      steps:
+        - run: echo "Deploying to ${{ inputs.environment }}..."
+          shell: bash
+        - uses: actions/checkout@v4
+          with:
+            repository: ${{ inputs.repository }}
+            path: ${{ inputs.path }}
+        - run: pm2 delete greetings-app-${{ inputs.environment }} || true
+          shell: bash
+          working-directory: ${{ inputs.path }}
+        - run: pm2 start app.py --name greetings-app-${{ inputs.environment }} -- --port ${{ inputs.port }}
+          shell: bash
+          working-directory: ${{ inputs.path }}
