@@ -16,9 +16,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: List files
-      run: ls -l
-      shell: bash
+    - name: Deploying message
+      run: echo "Deploying to ${{ inputs.environment }}..."
+      shell: cmd
     - name: Checkout code
       uses: actions/checkout@v4
       with:
