@@ -1,9 +1,9 @@
 name: Python Greetings Deployment Pipeline
 
-    on:
-      push:
-        branches:
-          - main
+on:
+  push:
+    branches:
+      - main
 
     jobs:
       install-pip-deps:
