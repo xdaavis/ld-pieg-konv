@@ -16,8 +16,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Simple echo
-      run: echo Hello
+    - name: List files
+      run: ls -l
       shell: bash
     - name: Checkout code
       uses: actions/checkout@v4
