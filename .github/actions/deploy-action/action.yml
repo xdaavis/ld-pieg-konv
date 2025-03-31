@@ -16,8 +16,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Deploying message
-      run: /bin/bash -c 'echo "Deploying to dev..."'
+    - name: Simple echo
+      run: echo Hello
       shell: bash
     - name: Checkout code
       uses: actions/checkout@v4
