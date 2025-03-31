@@ -17,7 +17,7 @@ runs:
   using: "composite"
   steps:
     - name: Deploying message
-      run: echo "Deploying to ${{ inputs.environment }}..."
+      run: /bin/bash -c 'echo "Deploying to dev..."'
       shell: bash
     - name: Checkout code
       uses: actions/checkout@v4
