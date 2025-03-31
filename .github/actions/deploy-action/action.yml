@@ -18,7 +18,7 @@ runs:
   steps:
     - name: Deploying message
       run: echo "Deploying to ${{ inputs.environment }}..."
-      shell: cmd
+      shell: bash
     - name: Checkout code
       uses: actions/checkout@v4
       with:
@@ -26,9 +26,9 @@ runs:
         path: ${{ inputs.path }}
     - name: Stop existing service
       run: pm2 delete greetings-app-${{ inputs.environment }} || true
-      shell: cmd
+      shell: bash
       working-directory: ${{ inputs.path }}
     - name: Start service
       run: pm2 start app.py --name greetings-app-${{ inputs.environment }} -- --port ${{ inputs.port }}
-      shell: cmd
+      shell: bash
       working-directory: ${{ inputs.path }}

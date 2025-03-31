@@ -14,14 +14,14 @@ name: "Test Environment"
       using: "composite"
       steps:
         - run: echo "Testing ${{ inputs.environment }}..."
-          shell: cmd
+          shell: bash
         - uses: actions/checkout@v4
           with:
             repository: ${{ inputs.repository }}
             path: ${{ inputs.path }}
         - run: npm install
-          shell: cmd
+          shell: bash
           working-directory: ${{ inputs.path }}
         - run: npm run greetings greetings_${{ inputs.environment }}
-          shell: cmd
+          shell: bash
           working-directory: ${{ inputs.path }}
